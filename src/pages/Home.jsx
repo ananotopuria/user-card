@@ -10,11 +10,17 @@ function Home() {
     background: "",
     name: "",
     surname: "",
-    color: "#ff6c02", 
+    color: "#ff6c02",
+    iconColor: "#415831",
     socialNetworks: {
       facebook: "",
       twitter: "",
       linkedin: "",
+    },
+    socialUrls: {
+      facebookUrl: "",
+      twitterUrl: "",
+      linkedinUrl: "",
     },
   });
   const dispatch = useDispatch();
@@ -26,6 +32,11 @@ function Home() {
       setUserInfo((prev) => ({
         ...prev,
         socialNetworks: { ...prev.socialNetworks, [name]: value },
+      }));
+    } else if (name in userInfo.socialUrls) {
+      setUserInfo((prev) => ({
+        ...prev,
+        socialUrls: { ...prev.socialUrls, [name]: value },
       }));
     } else {
       setUserInfo((prev) => ({ ...prev, [name]: value }));
@@ -51,7 +62,8 @@ function Home() {
   };
 
   const handleColorChange = (color) => {
-    setUserInfo((prev) => ({ ...prev, color }));
+    const iconColor = color === "#4d4d4c50" ? "#fff" : "#253538";
+    setUserInfo((prev) => ({ ...prev, color, iconColor }));
   };
 
   return (
@@ -94,7 +106,7 @@ function Home() {
           </div>
           <div className="flex flex-col gap-3">
             <div className="flex gap-3">
-              <FaFacebook color="#415831" />
+              <FaFacebook color={userInfo.iconColor} />
               <input
                 type="text"
                 name="facebook"
@@ -104,7 +116,7 @@ function Home() {
               />
             </div>
             <div className="flex gap-3">
-              <FaTwitter color="#415831" />
+              <FaTwitter color={userInfo.iconColor} />
               <input
                 type="text"
                 name="twitter"
@@ -114,7 +126,7 @@ function Home() {
               />
             </div>
             <div className="flex gap-3">
-              <FaLinkedin color="#415831" />
+              <FaLinkedin color={userInfo.iconColor} />
               <input
                 type="text"
                 name="linkedin"
@@ -129,20 +141,17 @@ function Home() {
               type="button"
               className="w-full p-3 px-6 rounded-full bg-[#fcafb3] md:w-56 hover:scale-95"
               onClick={() => handleColorChange("#fcafb350")}
-            > 
-            </button>
+            ></button>
             <button
               type="button"
               className="w-full p-3 px-6 rounded-full bg-[#a8a197] md:w-56 hover:scale-95"
               onClick={() => handleColorChange("#a8a19750")}
-            >
-            </button>
+            ></button>
             <button
               type="button"
               className="w-full p-3 px-6 rounded-full bg-[#4d4d4c] md:w-56 hover:scale-95"
               onClick={() => handleColorChange("#4d4d4c50")}
-            >
-            </button>
+            ></button>
           </div>
           <button
             className="w-full p-3 px-6 rounded-full bg-[#ff6c02] text-white md:w-56 hover:scale-95"

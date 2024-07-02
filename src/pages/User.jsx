@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function User() {
   const user = useSelector((state) => state.user);
@@ -18,8 +19,8 @@ function User() {
           }}
         ></div>
       )}
-      <div className="relative p-2 mx-6 rounded-2xl z-10" style={{ backgroundColor: user.color }}>
-        <div className="bg-[#ffffff52] p-2 rounded-2xl z-10">
+      <div className="relative" style={{ backgroundColor: user.color }}>
+        <div className="bg-[#ffffff52] p-2 mx-6 rounded-2xl z-10">
           <div className="flex flex-col md:flex-row rounded-l-xl gap-5">
             {user.picture && (
               <img
@@ -39,28 +40,34 @@ function User() {
               </div>
               <div className="flex flex-col gap-4 justify-center">
                 {user.socialNetworks.facebook && (
-                  <div>
-                    <FaFacebook color="#fff9e9" />
-                    <span className="max-w-xs my-4 text-xs leading-5 tracking-wide text-center text-white md:text-left">
-                      {user.socialNetworks.facebook}
-                    </span>
-                  </div>
+                  <Link
+                    to={user.socialNetworks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <FaFacebook color={user.iconColor} />
+                  </Link>
                 )}
                 {user.socialNetworks.twitter && (
-                  <div>
-                    <FaTwitter color="#fff9e9" />
-                    <span className="max-w-xs my-4 text-xs leading-5 tracking-wide text-center text-white md:text-left">
-                      {user.socialNetworks.twitter}
-                    </span>
-                  </div>
+                  <Link
+                    to={user.socialNetworks.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <FaTwitter color={user.iconColor} />
+                  </Link>
                 )}
                 {user.socialNetworks.linkedin && (
-                  <div>
-                    <FaLinkedin color="#fff9e9" />
-                    <span className="max-w-xs my-4 text-xs leading-5 tracking-wide text-center text-white md:text-left">
-                      {user.socialNetworks.linkedin}
-                    </span>
-                  </div>
+                  <Link
+                    to={user.socialNetworks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <FaLinkedin color={user.iconColor} />
+                  </Link>
                 )}
               </div>
             </div>

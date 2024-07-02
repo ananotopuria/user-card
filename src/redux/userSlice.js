@@ -8,10 +8,16 @@ const userSlice = createSlice({
     name: "",
     surname: "",
     color: "#fffff2",
+    iconColor: "#415831",
     socialNetworks: {
       facebook: "",
       twitter: "",
       linkedin: "",
+    },
+    socialUrls: {
+      facebookUrl: "",
+      twitterUrl: "",
+      linkedinUrl: "",
     },
   },
   reducers: {
