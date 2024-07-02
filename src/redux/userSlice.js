@@ -1,19 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  picture: "",
-  background: "",
-  name: "",
-  surname: "",
-  socialNetworks: {},
-};
-
 const userSlice = createSlice({
   name: "user",
-  initialState,
+  initialState: {
+    picture: "",
+    background: "",
+    name: "",
+    surname: "",
+    color: "#fffff2",
+    socialNetworks: {
+      facebook: "",
+      twitter: "",
+      linkedin: "",
+    },
+  },
   reducers: {
     setUser(state, action) {
-      return { ...state, ...action.payload };
+      return action.payload;
     },
   },
 });

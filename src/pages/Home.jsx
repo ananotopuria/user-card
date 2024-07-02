@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/userSlice";
@@ -11,6 +10,7 @@ function Home() {
     background: "",
     name: "",
     surname: "",
+    color: "#ff6c02", 
     socialNetworks: {
       facebook: "",
       twitter: "",
@@ -50,9 +50,15 @@ function Home() {
     navigate("/user");
   };
 
+  const handleColorChange = (color) => {
+    setUserInfo((prev) => ({ ...prev, color }));
+  };
+
   return (
     <div className="flex flex-col gap-2 items-center justify-center h-screen bg-[#415831]">
-      <h1 className="max-w-2xl mx-auto mb-10 text-3xl font-bold leading-normal mt-14 md:text-4xl text-[#f3ebdd] font-dosis">Create Your Own Card</h1>
+      <h1 className="max-w-2xl mx-auto mb-10 text-3xl font-bold leading-normal mt-14 md:text-4xl text-[#f3ebdd] font-dosis">
+        Create Your Own Card
+      </h1>
       <div className="bg-[#f3ebdd] p-7 mx-6 shadow-sm">
         <form
           onSubmit={handleSubmit}
@@ -88,7 +94,7 @@ function Home() {
           </div>
           <div className="flex flex-col gap-3">
             <div className="flex gap-3">
-              <FaFacebook color="#415831"/>
+              <FaFacebook color="#415831" />
               <input
                 type="text"
                 name="facebook"
@@ -98,7 +104,7 @@ function Home() {
               />
             </div>
             <div className="flex gap-3">
-              <FaTwitter color="#415831"/>
+              <FaTwitter color="#415831" />
               <input
                 type="text"
                 name="twitter"
@@ -108,7 +114,7 @@ function Home() {
               />
             </div>
             <div className="flex gap-3">
-              <FaLinkedin color="#415831"/>
+              <FaLinkedin color="#415831" />
               <input
                 type="text"
                 name="linkedin"
@@ -118,7 +124,32 @@ function Home() {
               />
             </div>
           </div>
-          <button className="w-full p-3 px-6 rounded-full bg-[#ff6c02] text-white md:w-56 hover:scale-95" type="submit">Save</button>
+          <div className="flex gap-3">
+            <button
+              type="button"
+              className="w-full p-3 px-6 rounded-full bg-[#fcafb3] md:w-56 hover:scale-95"
+              onClick={() => handleColorChange("#fcafb350")}
+            > 
+            </button>
+            <button
+              type="button"
+              className="w-full p-3 px-6 rounded-full bg-[#a8a197] md:w-56 hover:scale-95"
+              onClick={() => handleColorChange("#a8a19750")}
+            >
+            </button>
+            <button
+              type="button"
+              className="w-full p-3 px-6 rounded-full bg-[#4d4d4c] md:w-56 hover:scale-95"
+              onClick={() => handleColorChange("#4d4d4c50")}
+            >
+            </button>
+          </div>
+          <button
+            className="w-full p-3 px-6 rounded-full bg-[#ff6c02] text-white md:w-56 hover:scale-95"
+            type="submit"
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
