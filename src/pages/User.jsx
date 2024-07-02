@@ -6,8 +6,19 @@ function User() {
   const user = useSelector((state) => state.user);
 
   return (
-    <div className="flex items-center justify-center h-screen bg-[#ffb400]">
-      <div className="bg-[#ff6c02] p-2 mx-6 rounded-2xl">
+    <div className="relative flex items-center justify-center h-screen">
+      {user.background && (
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${user.background})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            zIndex: -1,
+          }}
+        ></div>
+      )}
+      <div className="relative bg-[#ff6c02] p-2 mx-6 rounded-2xl z-10">
         <div className="flex flex-col md:flex-row rounded-l-xl gap-5">
           {user.picture && (
             <img

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/userSlice";
@@ -7,6 +8,7 @@ import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 function Home() {
   const [userInfo, setUserInfo] = useState({
     picture: "",
+    background: "",
     name: "",
     surname: "",
     socialNetworks: {
@@ -31,10 +33,11 @@ function Home() {
   };
 
   const handleFileChange = (e) => {
+    const { name } = e.target;
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setUserInfo((prev) => ({ ...prev, picture: reader.result }));
+      setUserInfo((prev) => ({ ...prev, [name]: reader.result }));
     };
     if (file) {
       reader.readAsDataURL(file);
@@ -74,6 +77,12 @@ function Home() {
               type="file"
               accept="image/*"
               name="picture"
+              onChange={handleFileChange}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              name="background"
               onChange={handleFileChange}
             />
           </div>
