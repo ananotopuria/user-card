@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Home() {
   const [userInfo, setUserInfo] = useState({
@@ -10,18 +10,24 @@ function Home() {
     background: "",
     name: "",
     surname: "",
+    field: "",
     color: "#ff6c02",
     iconColor: "#415831",
     socialNetworks: {
       facebook: "",
       twitter: "",
       linkedin: "",
+      gmail: "",
     },
     socialUrls: {
       facebookUrl: "",
       twitterUrl: "",
       linkedinUrl: "",
+      gmailUrl: "",
     },
+    websiteUrl: "",
+    podcastUrl: "",
+    blogUrl: "",
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -67,8 +73,8 @@ function Home() {
   };
 
   return (
-    <div className="flex flex-col gap-2 items-center justify-center h-screen bg-[#415831]">
-      <h1 className="max-w-2xl mx-auto mb-10 text-3xl font-bold leading-normal mt-14 md:text-4xl text-[#f3ebdd] font-dosis">
+    <div className="flex flex-col gap-2 h-screen bg-[#415831]">
+      <h1 className="max-w-2xl mx-auto text-3xl font-bold leading-normal md:text-4xl text-[#f3ebdd] font-dosis">
         Create Your Own Card
       </h1>
       <div className="bg-[#f3ebdd] p-7 mx-6 shadow-sm">
@@ -92,16 +98,34 @@ function Home() {
               onChange={handleChange}
             />
             <input
-              type="file"
-              accept="image/*"
-              name="picture"
-              onChange={handleFileChange}
+              type="text"
+              name="field"
+              placeholder="Field"
+              className="w-full px-10 py-3 rounded-full focus:outline-none"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col gap-5">
+            <input
+              type="text"
+              name="websiteUrl"
+              placeholder="Website"
+              className="w-full px-10 py-3 rounded-full focus:outline-none"
+              onChange={handleChange}
             />
             <input
-              type="file"
-              accept="image/*"
-              name="background"
-              onChange={handleFileChange}
+              type="text"
+              name="podcastUrl"
+              placeholder="Podcast"
+              className="w-full px-10 py-3 rounded-full focus:outline-none"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="blogUrl"
+              placeholder="My Blog"
+              className="w-full px-10 py-3 rounded-full focus:outline-none"
+              onChange={handleChange}
             />
           </div>
           <div className="flex flex-col gap-3">
@@ -135,7 +159,39 @@ function Home() {
                 onChange={handleChange}
               />
             </div>
+            <div className="flex gap-3">
+              <FaEnvelope color={userInfo.iconColor} />
+              <input
+                type="text"
+                name="Gmail"
+                placeholder="Gmail"
+                className="w-full px-10 py-3 rounded-full focus:outline-none"
+                onChange={handleChange}
+              />
+            </div>
           </div>
+          <div className="flex gap-2">
+              <label htmlFor="picture" className="mb-1">
+                Profile picture
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                name="picture"
+                onChange={handleFileChange}
+              />
+            </div>
+            <div className="flex gap-2">
+              <label htmlFor="background" className="mb-1">
+                Background
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                name="background"
+                onChange={handleFileChange}
+              />
+            </div>
           <div className="flex gap-3">
             <button
               type="button"

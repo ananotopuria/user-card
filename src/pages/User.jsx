@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaEnvelope, FaLink } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function User() {
@@ -37,8 +37,11 @@ function User() {
                 <p className="text-xl font-medium text-center text-white md:text-left font-dosis">
                   {user.surname}
                 </p>
+                <p className="text-xl font-medium text-center text-white md:text-left font-dosis">
+                  {user.field}
+                </p>
               </div>
-              <div className="flex flex-col gap-4 justify-center">
+              <div className="flex gap-4 justify-center">
                 {user.socialNetworks.facebook && (
                   <Link
                     to={user.socialNetworks.facebook}
@@ -69,8 +72,53 @@ function User() {
                     <FaLinkedin color={user.iconColor} />
                   </Link>
                 )}
+                {user.socialNetworks.linkedin && (
+                  <Link
+                    to={user.socialNetworks.gmail}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <FaEnvelope color={user.iconColor} />
+                  </Link>
+                )}
               </div>
             </div>
+            <div className="flex flex-col gap-2 mt-4">
+                {user.websiteUrl && (
+                  <Link
+                    to={user.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white"
+                  >
+                    <FaLink />
+                    Website
+                  </Link>
+                )}
+                {user.podcastUrl && (
+                  <Link
+                    to={user.podcastUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white"
+                  >
+                    <FaLink />
+                    Podcast
+                  </Link>
+                )}
+                {user.blogUrl && (
+                  <Link
+                    to={user.blogUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white"
+                  >
+                    <FaLink />
+                    My Blog
+                  </Link>
+                )}
+              </div>
           </div>
         </div>
       </div>
