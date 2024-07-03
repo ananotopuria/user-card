@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 
 function NotFound() {
   return (
-    <div>
-      <h1>Page Not Found</h1>
-      <p>Sorry, the page you are looking for does not exist.</p>
+    <div className="flex flex-col justify-center items-center h-screen">
+      <h1 className="font-bodoni">Page Not Found</h1>
+      <p className="font-bodoni">
+        Sorry, the page you are looking for does not exist.
+      </p>
     </div>
   );
 }

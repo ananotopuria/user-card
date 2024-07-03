@@ -9,7 +9,7 @@ const userSlice = createSlice({
     surname: "",
     field: "",
     color: "#fffff2",
-    iconColor: "#415831",
+    iconColor: "#93a5ac",
     socialNetworks: {
       facebook: "",
       twitter: "",

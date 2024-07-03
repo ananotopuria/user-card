@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        dosis: ['Dosis', 'sans-serif'],
+        work: ['"Work Sans"', 'sans-serif'],
+        bodoni: ['"Bodoni Moda SC"', 'serif'],
       },
     },
   },
