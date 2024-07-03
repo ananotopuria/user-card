@@ -28,6 +28,7 @@ function Home() {
     websiteUrl: "",
     podcastUrl: "",
     blogUrl: "",
+    linkBackgroundColor: "#ff0000", 
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -69,7 +70,13 @@ function Home() {
 
   const handleColorChange = (color) => {
     const iconColor = color === "#4d4d4c50" ? "#fff" : "#253538";
-    setUserInfo((prev) => ({ ...prev, color, iconColor }));
+    const linkBackgroundColor = color === "#4d4d4c50" ? "#fff" : "#ff0000"; 
+    setUserInfo((prev) => ({
+      ...prev,
+      color,
+      iconColor,
+      linkBackgroundColor, 
+    }));
   };
 
   return (
@@ -178,6 +185,7 @@ function Home() {
                 type="file"
                 accept="image/*"
                 name="picture"
+                id="picture"
                 onChange={handleFileChange}
               />
             </div>
@@ -189,6 +197,7 @@ function Home() {
                 type="file"
                 accept="image/*"
                 name="background"
+                id=""
                 onChange={handleFileChange}
               />
             </div>

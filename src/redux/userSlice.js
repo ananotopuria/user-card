@@ -25,6 +25,7 @@ const userSlice = createSlice({
     websiteUrl: "",
     podcastUrl: "",
     blogUrl: "",
+    linkBackgroundColor: "#ff0000", 
   },
   reducers: {
     setUser(state, action) {
