@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         work: ['"Work Sans"', 'sans-serif'],
-        bodoni: ['"Bodoni Moda SC"', 'serif'],
+        bodoni: ['"Space Grotesk"', 'serif'],
       },
     },
   },

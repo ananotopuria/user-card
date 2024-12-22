@@ -1,11 +1,9 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import {
   FaFacebook,
   FaTwitter,
   FaLinkedin,
   FaEnvelope,
-  FaLink,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
